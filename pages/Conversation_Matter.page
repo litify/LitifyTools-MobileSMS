@@ -1,0 +1,26 @@
+<apex:page showHeader="false" standardController="litify_pm__Matter__c">
+	
+	<apex:includeLightning rendered="true"/>
+	<div id="lightning" />
+
+	<script>
+		var recordId = "{!$CurrentPage.parameters.id}";
+		$Lightning.use(
+			"smagicinteract:ConversationsApp", 
+			function() {
+				$Lightning.createComponent(
+					"smagicinteract:conversations",
+					{
+						 recordId : recordId,
+						 sObjectName : "litify_pm__Matter__c",
+						 phoneFieldCSV : "",
+						 embedContext : "detail"
+					},
+					"lightning",
+					function(cmp) {
+					}
+				);
+			}
+		);
+	</script>
+</apex:page>
